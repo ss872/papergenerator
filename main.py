@@ -10,3 +10,5 @@ for line in ftest:
     que = [line[1],line[4],line[7],line[10]]
     queBank.append(que)
 print(queBank)
+
+# hi bhav
