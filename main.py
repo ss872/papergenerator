@@ -18,7 +18,7 @@ for dif in range(3):
                 que.append(marks)
                 que.append(type)
                 que.append(chap)
-                que.append(random.randint(1, 101))
+                que.append(random.randint(1, 100))
                 # ftest.write(str(que))
                 # ftest.write('\n')
                 queBank.append(que)
@@ -54,12 +54,20 @@ for eachtype in typePattern:
         chapPattern[:] = [x - weightage for x in chapPattern]
         # print(chapPattern)
         for chap in range(1, 11):
+            candidates = []
             for each in nTypeQue:
                 # print("each3  ",each[3]," chap ",chap)
                 if each[3] == chap:
-                    Result.append(each)
-                    noOfQue -= 1
-                    break  # Remove break for probablistic selection
+                    candidates.append(each)
+            winnerWinnerChickenDinner = [0, 0, 0, 0, 0]
+            # print("can $$$$ ",candidates)
+            for eachCan in candidates:
+                if eachCan[4] > winnerWinnerChickenDinner[4]:
+                    winnerWinnerChickenDinner = eachCan
+            # print("Winner ==>",winnerWinnerChickenDinner)
+            Result.append(winnerWinnerChickenDinner)
+            noOfQue -= 1
+            # break  # Remove break for probabilistic selection
     while noOfQue > len(max_index):
         print("Loop ==>", noOfQue)
         for index in max_index:
@@ -68,11 +76,18 @@ for eachtype in typePattern:
             for each in nTypeQue:
                 # print("each3  ", each[3], " chap ", chap)
                 if each[3] == chap:
-                    Result.append(each)
-                    noOfQue -= 1
-                    break
+                    candidates.append(each)
+            winnerWinnerChickenDinner = [0, 0, 0, 0, 0]
+            # print("can $$$$ ",candidates)
+            for eachCan in candidates:
+                if eachCan[4] > winnerWinnerChickenDinner[4]:
+                    winnerWinnerChickenDinner = eachCan
+            # print("Winner ==>",winnerWinnerChickenDinner)
+            Result.append(winnerWinnerChickenDinner)
+            noOfQue -= 1
+            # break  # Remove break for probabilistic selection
         m = max(chapPattern)
-        max_index = [i for i, j in enumerate(chapPattern) if j == m]  # find index of maximum weightage chapters
+        max_index = [i for i, j in enumerate(chapPattern) if j == m]  # find index of maximum weight-age chapters
 
     for index in max_index:
         chapPattern[index] -= weightage
@@ -80,9 +95,15 @@ for eachtype in typePattern:
         for each in nTypeQue:
             # print("each3  ", each[3], " chap ", chap)
             if each[3] == chap:
-                Result.append(each)
-                noOfQue -= 1
-                break
+                candidates.append(each)
+        winnerWinnerChickenDinner = [0, 0, 0, 0, 0]
+        # print("can $$$$ ",candidates)
+        for eachCan in candidates:
+            if eachCan[4] > winnerWinnerChickenDinner[4]:
+                winnerWinnerChickenDinner = eachCan
+        # print("Winner ==>",winnerWinnerChickenDinner)
+        Result.append(winnerWinnerChickenDinner)
+        noOfQue -= 1
         if noOfQue == 0:
             break
     print(noOfQue)
