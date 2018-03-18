@@ -49,11 +49,11 @@ for eachtype in typePattern:
     print(max_index)
     # print(chapPattern)
     noOfChap = len(chapPattern)
-    while noOfQue > noOfChap:
+    while noOfQue > noOfChap:   #Add an and condition for 0 weigthage chap
         # print("whats up")
         chapPattern[:] = [x - weightage for x in chapPattern]
         # print(chapPattern)
-        for chap in range(1, 11):
+        for chap in range(1, noOfChap+1):
             candidates = []
             for each in nTypeQue:
                 # print("each3  ",each[3]," chap ",chap)
@@ -111,3 +111,5 @@ for eachtype in typePattern:
 print(chapPattern)
 print(Result)
 print("Final Count!! = ", len(Result))
+
+# Add something for winner = [0,0,0,0] And infine loops
